@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {{title}}
+    </title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <!-- <script src="./helper.js"></script> -->
+</head>
+<body>
+    <button onclick="window.location = '/logout'">logout</button>
+    <div>
+        <button onclick="window.location = '/post'">Post</button>
+        <ul>
+        {{#each posts}}
+            <div> <li class="row">{{post}}</li>
+             <p>{{username}}</p></div>
+        {{/each}}
+        </ul>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+    $("div").click(function(event) {
+        event.stopImmediatePropagation();
+        let post = $('li').text();
+        let name = ($('p').text());
+        let item = {
+            username : name,
+            post : post
+        }
+        console.log(item);
+        $.ajax({
+          type: 'PUT',
+         // url: '/like/'+item,
+          url:"like/"+post+":/"+name,
+          success: function(data){
+            location.reload();
+          }
+        });   
+    });
+})
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div style="font-size: 16px;">
+        <button onclick = "window.location='/login'" >Login</button>
+        <button onclick = "window.location='/signup'" >Sign up</button>
+    </div>
+    <h1>Login </h1>
+    <form action="/login" method="POST">
+        <input type="text" name= "username" placeholder="username">
+        <input type="password" name= "password" placeholder="password">
+        <button type="submit">Submit</button>
+    </form>
+    <h2>{{message}}</h2>
+</body>
+</html>
